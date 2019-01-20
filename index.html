@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Train Time </title>
+    <link rel="stylesheet" type="text/css" href= "./assets/css/style.css" />
+ <!-- Moment JS Link -->
+ <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+ <!-- Jquery Link -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <!-- Local Javascript Link -->
+ <script src="assets/javascript/main.js"></script>
+ <!-- Bootstrap CDN Link -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+     crossorigin="anonymous">
+ <!-- Local CSS Link  -->
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+ <!-- Firebase Javascript link -->
+ <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+ <!-- Google Font Link -->
+ <link href="https://fonts.googleapis.com/css?family=Kumar+One+Outline" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <div id= "container"> 
+      <div id= "header">
+    
+      <img src="assets/img/train schedule.png" width="240" height="200pc
+      " alt="logo" />
+    </div> 
+  </div>
+  <div id="card">
+      <div class="card-header head"> Current Train Schedule</div>
+      <div class="card-body">
+          <li class="list-group-item">
+              <div class="row">
+                  <div class="col" id="trainName">Train Name</div>
+                  <div class="col" id="destination">Destination</div>
+                  <div class="col" id="frequency">Frequency</div>
+                  <div class="col" id="nextArrival">Next Arrival</div>
+                  <div class="col" id="minutesAway">Minutes Away</div>
+
+              </div>
+          </li>
+          <li class="list-group-item">
+              <div class="row">
+                  <div class="col">Trenton Express</div>
+                  <div class="col">Trenton </div>
+                  <div class="col">25</div>
+                  <div class="col">05:35 PM</div>
+                  <div class="col">10</div>
+              </div>
+          </li>
+          <li class="list-group-item">
+              <div class="row">
+                  <div class="col">Oregon Trail</div>
+                  <div class="col">Salem,Oregon</div>
+                  <div class="col">3600</div>
+                  <div class="col">01:39PM</div>
+                  <div class="col">1154</div>
+              </div>
+          </li>
+
+
+      </ul>
+  </div>
+</div>
+<div id= "container2"> 
+  <div class="form-header head">    Add Train </div>
+  <div class="form-body"></div>
+  <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Train Name</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Destination</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+      </div>
+      <div id= "form-group2" class="form-group">
+          <label for="formGroupExampleInput2">(First Train Time (hh:mm - military time)</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+        </div>
+        <div id="form-group2">
+            <label for="formGroupExampleInput2">Frequency (min)</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+          </div>
+    </form>
+      <form id="submit" action="/action_page.php">
+      <input type="submit" value="Submit">
+    </form>
+<br><br>
+        
+      </div>
+    </div>
+  </header>
