@@ -3,11 +3,12 @@ $(document).ready(function () {
 console.log ("i am working");
 var config = {
   apiKey: "AIzaSyANR_Nz0H9aX_8C2ki-S2TP31yV1b5e5PA",
-  authDomain: "AIzaSyCf-BdDKIqZgG8U3MKQoSLtA8zursPd-GU.firebaseapp.com",
+  authDomain: "train-schedule-25.firebaseapp.com",
   databaseURL: "https://train-schedule-25.firebaseio.com",
   projectId: "train-schedule-25",
-  storageBucket: "gs://train-schedule-25.appspot.com",
-  };
+  storageBucket: "train-schedule-25.appspot.com",
+  messagingSenderId: "437950595149"
+};
   
   firebase.initializeApp(config);
   
@@ -40,7 +41,7 @@ var config = {
     var addedTrain = {
       name: train,
       dest:destination,
-      fTime:time,
+      trainTime:time,
       freq:frequency
     };
 
@@ -95,11 +96,11 @@ var config = {
   
   // console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
   
-   database.ref().on("child_added", function (childSnapshot) {
+   database.ref("list").on("child_added", function (childSnapshot) {
   //saving the value in variables
   var trainName = childSnapshot.val().name;
   var destination = childSnapshot.val().dest;
-  var trainTime = childSnapshot.val().first;
+  var trainTime = childSnapshot.val().trainTime;
   var frequency = childSnapshot.val().freq;
 
    // Log everything that's coming out of snapshot
@@ -114,7 +115,7 @@ var config = {
    var tFrequency = frequency;
 
     // Time is 3:30 AM
-    var firstTrainTime = firstTime;
+    var firstTrainTime = trainTime;
     //First Time (pushed back 1 year to make sure it comes before current time)
     var firstTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
     console.log("HERE: "+firstTimeConverted);
@@ -122,13 +123,13 @@ var config = {
   var currentTime = moment();
    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
    // Difference between the times
-   var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+   var diffTime = currentTime.diff(firstTimeConverted, "minutes");
    console.log("DIFFERENCE IN TIME: " + diffTime);
   // Time apart (remainder)
-  var tRemainder = diffTime % tFrequency;
+  var tRemainder = diffTime % frequency;
   console.log(tRemainder);
    // Minute Until Train
-   var tMinutesTillTrain = tFrequency - tRemainder;
+   var tMinutesTillTrain = frequency - tRemainder;
    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
     // Next Train
@@ -136,8 +137,8 @@ var config = {
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm a"));
    
     // Add each train's data into the table
- $("table > tbody").append("<tr><td>" + dTrainName + "</td><td>" + dDestination + "</td><td>" +
- dFrequency + "</td><td>" + moment(nextTrain).format("hh:mm a") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+ $("table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
+ frequency + "</td><td>" + moment(nextTrain).format("hh:mm a") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 
  
 
