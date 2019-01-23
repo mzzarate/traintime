@@ -8,18 +8,17 @@
  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
  <!-- Jquery Link -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <!-- Local Javascript Link -->
- <script src="assets/javascript/main.js"></script>
  <!-- Bootstrap CDN Link -->
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
      crossorigin="anonymous">
  <!-- Local CSS Link  -->
  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
  <!-- Firebase Javascript link -->
- <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
  <!-- Google Font Link -->
  <link href="https://fonts.googleapis.com/css?family=Kumar+One+Outline" rel="stylesheet">
-
+ <!-- Local Javascript Link -->
+ <script src="assets/javascript/train.js"></script>
 </head>
 <body>
   <header>
@@ -33,37 +32,15 @@
   <div id="card">
       <div class="card-header head"> Current Train Schedule</div>
       <div class="card-body">
-          <li class="list-group-item">
-              <div class="row">
-                  <div class="col" id="trainName">Train Name</div>
-                  <div class="col" id="destination">Destination</div>
-                  <div class="col" id="frequency">Frequency</div>
-                  <div class="col" id="nextArrival">Next Arrival</div>
-                  <div class="col" id="minutesAway">Minutes Away</div>
-
-              </div>
-          </li>
-          <li class="list-group-item">
-              <div class="row">
-                  <div class="col">Trenton Express</div>
-                  <div class="col">Trenton </div>
-                  <div class="col">25</div>
-                  <div class="col">05:35 PM</div>
-                  <div class="col">10</div>
-              </div>
-          </li>
-          <li class="list-group-item">
-              <div class="row">
-                  <div class="col">Oregon Trail</div>
-                  <div class="col">Salem,Oregon</div>
-                  <div class="col">3600</div>
-                  <div class="col">01:39PM</div>
-                  <div class="col">1154</div>
-              </div>
-          </li>
-
-
-      </ul>
+        <table style="width:100%">
+            <tr>
+              <th>Train Name</th>
+              <th>Destination</th> 
+              <th>Frequency (min)</th>
+              <th>Next Arrival</th>
+              <th>Minutes Away</th>
+            </tr>
+          </table>
   </div>
 </div>
 <div id= "container2"> 
@@ -72,24 +49,24 @@
   <form>
       <div class="form-group">
         <label for="formGroupExampleInput">Train Name</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+        <input type="text" class="form-control" id="trainNameInput" placeholder="">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Destination</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+        <input type="text" class="form-control" id="destinationInput" placeholder="">
       </div>
       <div id= "form-group2" class="form-group">
           <label for="formGroupExampleInput2">(First Train Time (hh:mm - military time)</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+          <input type="text" class="form-control" id="startTimeInput" placeholder="">
         </div>
         <div id="form-group2">
             <label for="formGroupExampleInput2">Frequency (min)</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+            <input type="text" class="form-control" id="frequencyInput" placeholder="">
           </div>
+        <button type="submit" value="Submit" id="submit"> submit
+        </button>
     </form>
-      <form id="submit" action="/action_page.php">
-      <input type="submit" value="Submit">
-    </form>
+      
 <br><br>
         
       </div>
