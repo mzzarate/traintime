@@ -1,0 +1,26 @@
+div#container {
+    position: relative;
+    text-align:center;
+}
+
+div#header{
+    widows: 100%;;
+    height:200px;
+}
+
+div#card {
+    background-color: aliceblue;
+}
+div#container2 {
+    widows: 100%;;
+    height:200px;
+    background-color: aliceblue;
+
+}
+ div#form-group2 {
+    background-color: aliceblue;
+ }
+
+submit {
+    margin: 20px;
+}
